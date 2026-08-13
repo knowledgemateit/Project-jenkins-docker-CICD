@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_HUB_REPO = 'rajusw804/projectrepo_new'
         DOCKER_HUB_CREDS = credentials('docker-hub-credentials')
-        VERSION         = "2.0.${BUILD_NUMBER}"
+        VERSION         = "3.0.${BUILD_NUMBER}"
         IMAGE_NAME      = "${DOCKER_HUB_REPO}:${VERSION}"
         // Unique container name to avoid conflicts during parallel builds
         CONTAINER_NAME  = "tomcat-test-${BUILD_NUMBER}" 
@@ -29,7 +29,8 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                // sh "sudo chmod 666 /var/run/docker.sock"
+                // Fix for Docker socket permission denied
+                sh "sudo chmod 666 /var/run/docker.sock"
                 echo "Building Docker Image: ${IMAGE_NAME}"
                 // Build with both the specific version and 'latest' tag
                 sh "docker build -t ${IMAGE_NAME} -t ${DOCKER_HUB_REPO}:latest ."
