@@ -113,3 +113,17 @@ Host Agent privateIP: 172.31.16.16
 Credentials
 jenkins (masterkey) : id_rsa (jenkins_user)
 Host Key Verification Strategy     : Non verifying Verification Strategy
+
+-------------------------
+
+
+Troubleshooting:
+sudo usermod -aG docker jenkins
+
+sudo systemctl restart jenkins
+
+visudo
+
+root    ALL=(ALL)       ALL
+jenkins ALL=(ALL) NOPASSWD: /bin/chmod /var/run/docker.sock
+
