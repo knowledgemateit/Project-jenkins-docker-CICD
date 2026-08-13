@@ -86,7 +86,7 @@ Master Jenkins user id_rsa.pub  copy to Agents jenkins user authorized_keys
 
 sudo dnf update -y
 
-sudo dnf install java-17-amazon-corretto -y
+sudo dnf install java-21-amazon-corretto -y
 
 sudo mkdir -p /home/ec2-user/jenkins
 
