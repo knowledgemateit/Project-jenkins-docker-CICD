@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_HUB_REPO = 'rajusw804/projectrepo'
+        DOCKER_HUB_REPO = 'rajusw804/projectrepo_new'
         DOCKER_HUB_CREDS = credentials('docker-hub-credentials')
         VERSION         = "2.0.${BUILD_NUMBER}"
         IMAGE_NAME      = "${DOCKER_HUB_REPO}:${VERSION}"
