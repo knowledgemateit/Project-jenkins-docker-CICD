@@ -6,7 +6,7 @@ Jenkins & Docker & Terraform  Installation:
 
 sudo dnf update -y
 
-sudo dnf install java-17-amazon-corretto -y
+sudo dnf install java-21-amazon-corretto -y
 
 # Add Jenkins Repository
 
